@@ -1,0 +1,14 @@
+language: java
+sudo: false
+
+before_install:
+  - rvm install 2.2
+  - rvm use 2.2
+  - gem install hiptest-publisher
+  - hiptest-publisher -c groovy-spock.conf --token=$SECRET_TOKEN --only=tests --test-run-id=81415
+
+script:
+  - mvn clean test
+
+after_script:
+  - hiptest-publisher -c groovy-spock.conf --token=$SECRET_TOKEN -p "target/surefire-reports/TEST-*.xml" --test-run-id=81415
