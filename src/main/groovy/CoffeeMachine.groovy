@@ -1,3 +1,5 @@
+package com.example.coffeemachine
+
 class CoffeeMachine {
   Boolean started = false;
   Boolean coffeeServed = false;
@@ -17,9 +19,9 @@ class CoffeeMachine {
     emptyGrounds();
   }
 
-  def start(lang) {
+  def start(lang = "en") {
     started = true;
-    this.lang = lang ?: "en";
+    this.lang = lang;
   }
 
   def stop() {
@@ -68,8 +70,6 @@ class CoffeeMachine {
       ],
     ]
 
-    println lang
-    println key
     return messages[lang][key];
   }
 
