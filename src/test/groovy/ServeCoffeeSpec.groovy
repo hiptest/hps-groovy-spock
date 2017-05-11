@@ -6,7 +6,7 @@ class ServeCoffeeSpec extends Specification {
 
 
   def "Simple use"() {
-    // Tags: priority:high
+    // Tags: priority:0
 
     // Well, sometimes, you just get a coffee.
     given:

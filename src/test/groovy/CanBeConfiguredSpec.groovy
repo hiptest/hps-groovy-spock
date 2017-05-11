@@ -5,21 +5,21 @@ class CanBeConfiguredSpec extends Specification {
 
 
 
-  def "Default settings"() {
-    // Tags: priority:high
-    given:
-    actionwords.theCoffeeMachineIsStarted()
-    when:
-    actionwords.iSwitchToSettingsMode()
-    then:
-    actionwords.settingsShouldBe("| water hardness | 2      |\n| grinder        | medium |")
-  }
   def "Display settings"() {
-    // Tags: priority:medium
+    // Tags: priority:1
     given:
     actionwords.theCoffeeMachineIsStarted()
     when:
     actionwords.iSwitchToSettingsMode()
     then:
     actionwords.displayedMessageIs("Settings:\n - 1: water hardness\n - 2: grinder")
+  }
+  def "Default settings"() {
+    // Tags: priority:0
+    given:
+    actionwords.theCoffeeMachineIsStarted()
+    when:
+    actionwords.iSwitchToSettingsMode()
+    then:
+    actionwords.settingsShouldBe("| water hardness | 2      |\n| grinder        | medium |")
   }}

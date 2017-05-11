@@ -10,17 +10,15 @@ class BeansSpec extends Specification {
     actionwords.iHandleEverythingExceptTheBeans()}
 
 
-  def "After adding beans, the message \"Fill beans\" disappears"() {
-    // Tags: priority:high
-    given:
-    actionwords.iTakeCoffeeNumberCoffees(40)
+  def "Message \"Fill beans\" is displayed after 38 coffees are taken"() {
+    // Tags: priority:0
     when:
-    actionwords.iFillTheBeansTank()
+    actionwords.iTakeCoffeeNumberCoffees(38)
     then:
-    actionwords.messageMessageShouldBeDisplayed("Ready")
+    actionwords.messageMessageShouldBeDisplayed("Fill beans")
   }
   def "It is possible to take 40 coffees before there is really no more beans"() {
-    // Tags: priority:low
+    // Tags: priority:2
     when:
     actionwords.iTakeCoffeeNumberCoffees(40)
     then:
@@ -31,10 +29,11 @@ class BeansSpec extends Specification {
     actionwords.coffeeShouldNotBeServed()
     actionwords.messageMessageShouldBeDisplayed("Fill beans")
   }
-  def "Message \"Fill beans\" is displayed after 38 coffees are taken"() {
-    // Tags: priority:high
+  def "After adding beans, the message \"Fill beans\" disappears"() {
+    // Tags: priority:0
     when:
-    actionwords.iTakeCoffeeNumberCoffees(38)
+    actionwords.iTakeCoffeeNumberCoffees(40)
+    actionwords.iFillTheBeansTank()
     then:
-    actionwords.messageMessageShouldBeDisplayed("Fill beans")
+    actionwords.messageMessageShouldBeDisplayed("Ready")
   }}

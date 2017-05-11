@@ -10,17 +10,15 @@ class WaterSpec extends Specification {
     actionwords.iHandleEverythingExceptTheWaterTank()}
 
 
-  def "When the water tank is filled, the message disappears"() {
-    // Tags: priority:high
-    given:
-    actionwords.iTakeCoffeeNumberCoffees(55)
+  def "Message \"Fill water tank\" is displayed after 50 coffees are taken"() {
+    // Tags: priority:0
     when:
-    actionwords.iFillTheWaterTank()
+    actionwords.iTakeCoffeeNumberCoffees(50)
     then:
-    actionwords.messageMessageShouldBeDisplayed("Ready")
+    actionwords.messageMessageShouldBeDisplayed("Fill tank")
   }
   def "It is possible to take 10 coffees after the message \"Fill water tank\" is displayed"() {
-    // Tags: priority:low
+    // Tags: priority:2
     when:
     actionwords.iTakeCoffeeNumberCoffees(60)
     then:
@@ -30,10 +28,11 @@ class WaterSpec extends Specification {
     then:
     actionwords.coffeeShouldNotBeServed()
   }
-  def "Message \"Fill water tank\" is displayed after 50 coffees are taken"() {
-    // Tags: priority:high
+  def "When the water tank is filled, the message disappears"() {
+    // Tags: priority:0
     when:
-    actionwords.iTakeCoffeeNumberCoffees(50)
+    actionwords.iTakeCoffeeNumberCoffees(55)
+    actionwords.iFillTheWaterTank()
     then:
-    actionwords.messageMessageShouldBeDisplayed("Fill tank")
+    actionwords.messageMessageShouldBeDisplayed("Ready")
   }}

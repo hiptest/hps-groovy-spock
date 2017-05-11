@@ -10,19 +10,18 @@ class GroundsSpec extends Specification {
     actionwords.iHandleEverythingExceptTheGrounds()}
 
 
-  def "When the grounds are emptied, message is removed"() {
-    // Tags: priority:medium
-    given:
-    actionwords.iTakeCoffeeNumberCoffees(30)
-    when:
-    actionwords.iEmptyTheCoffeeGrounds()
-    then:
-    actionwords.messageMessageShouldBeDisplayed("Ready")
-  }
   def "Message \"Empty grounds\" is displayed after 30 coffees are taken"() {
-    // Tags: priority:high
+    // Tags: priority:0
     when:
     actionwords.iTakeCoffeeNumberCoffees(30)
     then:
     actionwords.messageMessageShouldBeDisplayed("Empty grounds")
+  }
+  def "When the grounds are emptied, message is removed"() {
+    // Tags: priority:1
+    when:
+    actionwords.iTakeCoffeeNumberCoffees(30)
+    actionwords.iEmptyTheCoffeeGrounds()
+    then:
+    actionwords.messageMessageShouldBeDisplayed("Ready")
   }}
