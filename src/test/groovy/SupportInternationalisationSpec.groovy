@@ -7,6 +7,8 @@ class SupportInternationalisationSpec extends Specification {
 
   def "No messages are displayed when machine is shut down"() {
     // Tags: priority:1
+
+
     given:
     actionwords.theCoffeeMachineIsStarted()
     when:
@@ -15,16 +17,19 @@ class SupportInternationalisationSpec extends Specification {
     actionwords.messageMessageShouldBeDisplayed("")
   }
   def "Messages are based on language"() {
+    // Well, sometimes, you just get a coffee.
+
     // Tags: priority:1
 
-    // Well, sometimes, you just get a coffee.
+
     when:
     actionwords.iStartTheCoffeeMachineUsingLanguageLang(language)
     then:
     actionwords.messageMessageShouldBeDisplayed(readyMessage)
 
     where:
-    language | readyMessage 
-    "en" | "Ready" 
-    "fr" | "Pret" 
-  }}
+    language | readyMessage | hiptestUid
+    "en" | "Ready" | "uid:"
+    "fr" | "Pret" | "uid:"
+  }
+}

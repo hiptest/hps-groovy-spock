@@ -12,6 +12,8 @@ class BeansSpec extends Specification {
 
   def "Message \"Fill beans\" is displayed after 38 coffees are taken"() {
     // Tags: priority:0
+
+
     when:
     actionwords.iTakeCoffeeNumberCoffees(38)
     then:
@@ -19,6 +21,8 @@ class BeansSpec extends Specification {
   }
   def "It is possible to take 40 coffees before there is really no more beans"() {
     // Tags: priority:2
+
+
     when:
     actionwords.iTakeCoffeeNumberCoffees(40)
     then:
@@ -31,9 +35,12 @@ class BeansSpec extends Specification {
   }
   def "After adding beans, the message \"Fill beans\" disappears"() {
     // Tags: priority:0
+
+
     when:
     actionwords.iTakeCoffeeNumberCoffees(40)
     actionwords.iFillTheBeansTank()
     then:
     actionwords.messageMessageShouldBeDisplayed("Ready")
-  }}
+  }
+}

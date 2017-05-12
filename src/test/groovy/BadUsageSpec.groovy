@@ -6,9 +6,11 @@ class BadUsageSpec extends Specification {
 
 
   def "Full grounds does not block coffee"() {
+    // You keep getting coffee even if the "Empty grounds" message is displayed. That said it's not a fantastic idea, you'll get ground everywhere when you'll decide to empty it.
+
     // Tags: priority:2
 
-    // You keep getting coffee even if the "Empty grounds" message is displayed. That said it's not a fantastic idea, you'll get ground everywhere when you'll decide to empty it.
+
     given:
     actionwords.theCoffeeMachineIsStarted()
     actionwords.iHandleEverythingExceptTheGrounds()
@@ -17,4 +19,5 @@ class BadUsageSpec extends Specification {
     then:
     actionwords.messageMessageShouldBeDisplayed("Empty grounds")
     actionwords.coffeeShouldBeServed()
-  }}
+  }
+}

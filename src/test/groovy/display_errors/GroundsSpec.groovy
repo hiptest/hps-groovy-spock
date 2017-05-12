@@ -12,6 +12,8 @@ class GroundsSpec extends Specification {
 
   def "Message \"Empty grounds\" is displayed after 30 coffees are taken"() {
     // Tags: priority:0
+
+
     when:
     actionwords.iTakeCoffeeNumberCoffees(30)
     then:
@@ -19,9 +21,12 @@ class GroundsSpec extends Specification {
   }
   def "When the grounds are emptied, message is removed"() {
     // Tags: priority:1
+
+
     when:
     actionwords.iTakeCoffeeNumberCoffees(30)
     actionwords.iEmptyTheCoffeeGrounds()
     then:
     actionwords.messageMessageShouldBeDisplayed("Ready")
-  }}
+  }
+}

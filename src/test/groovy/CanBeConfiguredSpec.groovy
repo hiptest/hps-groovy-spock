@@ -7,6 +7,8 @@ class CanBeConfiguredSpec extends Specification {
 
   def "Display settings"() {
     // Tags: priority:1
+
+
     given:
     actionwords.theCoffeeMachineIsStarted()
     when:
@@ -16,10 +18,13 @@ class CanBeConfiguredSpec extends Specification {
   }
   def "Default settings"() {
     // Tags: priority:0
+
+
     given:
     actionwords.theCoffeeMachineIsStarted()
     when:
     actionwords.iSwitchToSettingsMode()
     then:
     actionwords.settingsShouldBe("| water hardness | 2      |\n| grinder        | medium |")
-  }}
+  }
+}
