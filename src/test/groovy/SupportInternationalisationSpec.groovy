@@ -16,20 +16,23 @@ class SupportInternationalisationSpec extends Specification {
     then:
     actionwords.messageMessageShouldBeDisplayed("")
   }
-  def "Messages are based on language"() {
+  def messagesAreBasedOnLanguage(language, readyMessage) {
     // Well, sometimes, you just get a coffee.
 
     // Tags: priority:1
 
 
-    when:
     actionwords.iStartTheCoffeeMachineUsingLanguageLang(language)
-    then:
     actionwords.messageMessageShouldBeDisplayed(readyMessage)
+  }
 
-    where:
-    language | readyMessage | hiptestUid
-    "en" | "Ready" | "uid:"
-    "fr" | "Pret" | "uid:"
+  def "Messages are based on language - English"() {
+    expect:
+    messagesAreBasedOnLanguage("en", "Ready")
+  }
+
+  def "Messages are based on language - French"() {
+    expect:
+    messagesAreBasedOnLanguage("fr", "Pret")
   }
 }
