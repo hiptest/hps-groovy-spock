@@ -3,7 +3,7 @@
 
 Hiptest publisher samples with Groovy/Spock
 
-In this repository you'll find tests generated in Groovy/Spock format from [Hiptest](https://hiptest.net), using [Hiptest publisher](https://github.com/hiptest/hiptest-publisher).
+In this repository you'll find tests generated in Groovy/Spock format from [Hiptest](https://hiptest.com), using [Hiptest publisher](https://github.com/hiptest/hiptest-publisher).
 
 The goals are:
 
